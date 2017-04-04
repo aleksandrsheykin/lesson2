@@ -7,24 +7,28 @@ import java.lang.reflect.Array;
  */
 public class ArrList<T> {
     private int size = 0;
-    //private <T> arr[];
-    //<T>[] arr = new Array(1);
-    //private Double[] arr;
-    //private <T>[] arr;
-    //private Object<T> arr = new Object<>();
-    //private Object arr;
-    private Array arr [];
+    private T[] arr;
 
     ArrList() {
-        arr = new Array[0];
+        arr = (T[]) new Object[0];
     }
 
     ArrList(int capacity) {
-        arr = new Array[capacity];
+        arr = (T[]) new Object[capacity];
     }
 
     public void add(T a) {
-        arr[0] = a;
+        arr[size++] = a;
+    }
+
+    public void add(T a, int ind) {
+        if(ind>size) {
+            size = ind;
+            T[] tmp = (T[]) new Object[ind+1];
+            
+        } else {
+            arr[ind] = a;
+        }
     }
 
     public void remove(int ind) {
@@ -36,6 +40,7 @@ public class ArrList<T> {
     }
 
     public void writeList() {
-        System.out.println(arr.toString());
+        for (T v : arr)
+            System.out.print("["+v+"] ");
     }
 }
