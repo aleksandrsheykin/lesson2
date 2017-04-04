@@ -9,11 +9,11 @@ public class ArrList<T extends Number> {
     double[] arr;
 
     public void add(T a) {
-        arr[arr.length] = a;
+        arr[arr.length] = (double) a;
     }
 
-    public void remove() {
-        //
+    public void remove(int ind) {
+        //arr[ind].remove;
     }
 
     public void finde(T a) {
